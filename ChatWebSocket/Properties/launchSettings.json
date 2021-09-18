@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:49472",
-      "sslPort": 44374
+      "applicationUrl": "http://localhost:5609",
+      "sslPort": 44307
     }
   },
   "profiles": {
@@ -16,7 +16,7 @@
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
       }
     },
-    "WebApplication1": {
+    "ChatWebSocket": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
