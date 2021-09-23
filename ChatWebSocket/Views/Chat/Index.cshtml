@@ -1,0 +1,68 @@
+﻿@{
+	Layout = "_Layout";
+}
+
+<div id="MapaSite">
+</div>
+
+<input id="userName" type="hidden" value="" />
+<input id="userId" type="hidden" value="" />
+
+<div id="content" class="container-fluid p-t-20">
+	<div class="row bootstrap snippets">
+		<div class="box direct-chat direct-chat-danger">
+			<div class="box-body">
+				<div class="direct-chat-messages">
+				</div>
+			</div>
+			<div class="box-footer">
+				<div class="input-group">
+					<input id="txtTypeMessage" type="text" name="message" placeholder="Para enviar mensagens privadas utilize @@Apelido desejado..." class="form-control">
+					<span class="input-group-btn">
+						<button id="btnSend" type="button" class="btn btn-info btn-flat">Send</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<template id="templateUserConnected">
+	<div class="direct-chat-msg">
+		<div class="direct-chat-text-connected">Conexão realizada com sucesso!</div>
+	</div>
+</template>
+
+<template id="templateOtherUserConnected">
+	<div class="direct-chat-msg">
+		<div class="direct-chat-text direct-chat-text-connected"></div>
+	</div>
+</template>
+
+<template id="templateSender">
+	<div class="direct-chat-msg">
+		<div class="direct-chat-info clearfix">
+			<span class="direct-chat-name pull-left">Teste</span>
+			@*<span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>*@
+		</div>
+		<div class="direct-chat-text"></div>
+	</div>
+</template>
+
+<template id="templateReceiver">
+	<div class="direct-chat-msg right">
+		<div class="direct-chat-info clearfix">
+			<span class="direct-chat-name pull-right">Teste2 </span>
+			@*<span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>*@
+		</div>
+		<div class="direct-chat-text"></div>
+	</div>
+</template>
+
+@section CSS{
+	<link href="~/css/views/chat.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section Scripts {
+	<script src="/js/views/chat.js"></script>
+}

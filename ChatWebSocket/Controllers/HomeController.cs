@@ -11,11 +11,11 @@ namespace ChatWebSocket.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
+		private readonly ConnectionManager _webSocketConnectionManager;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ConnectionManager webSocketConnectionManager)
 		{
-			_logger = logger;
+			_webSocketConnectionManager = webSocketConnectionManager;
 		}
 
 		public IActionResult Index()
@@ -23,15 +23,16 @@ namespace ChatWebSocket.Controllers
 			return View();
 		}
 
-		public IActionResult Privacy()
+		[HttpPost]
+		public IActionResult Index(string apelido)
 		{
-			return View();
-		}
+			if (_webSocketConnectionManager.ApelidoExists(apelido))
+			{
+				ViewBag.Erro = "Já existe alguém conectado com este apelido, utilize outro.";
+				return View();
+			}
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		public IActionResult Error()
-		{
-			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+			return RedirectToAction("Index", "Chat", new { Apelido = apelido });
 		}
 	}
 }

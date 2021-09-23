@@ -1,8 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	Layout = "_Layout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form asp-action="Index" asp-controller="Chat" method="get">
+	@if(!string.IsNullOrWhiteSpace(ViewBag.Erro))
+	{
+		<div class="input-group col-4">
+			<p style="color: red;">ViewBag.Erro</p>
+		</div>
+	}
+
+	<div class="input-group col-4">
+		<input id="apelido" name="apelido" type="text" name="message" placeholder="Apelido" class="form-control">
+		<br />
+
+		<button id="btnEntrar" type="submit" class="btn btn-info btn-flat">Entrar</button>
+	</div>
+</form>
